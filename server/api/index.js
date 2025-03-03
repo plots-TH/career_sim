@@ -1,13 +1,14 @@
 const express = require("express");
-
 const router = express.Router();
 
-router.use("/widgets", require("./widgetRoutes.js"));
 router.use("/users", require("./userRoutes.js"));
+router.use("/auth", require("./authRoutes"));
+router.use("/items", require("./itemRoutes.js"));
+router.use("/reviews", require("./reviewRoutes.js"));
+router.use("/", require("./commentRoutes.js"));
 
-// this is localhost:3000/api/
 router.get("/", (req, res) => {
-  res.send("hello from the main router in api/index.js");
+  res.send("Hello from the main API router!");
 });
 
 module.exports = router;
